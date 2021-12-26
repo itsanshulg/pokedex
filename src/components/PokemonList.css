@@ -1,12 +1,8 @@
 .poke{
-    /* background: rgb(2,0,36);
-    background: linear-gradient(225deg, rgba(2,0,36,1) 0%, rgba(252,252,252,1) 40%, rgba(0,212,255,1) 100%);    */
     background-color: white;
     border-radius:30%;
 }
-.container{
-    background-image:url("./background.jpg");
-        background-color:  #001f33;
+.container-fluid{
         background-repeat: no-repeat;
         background-size:cover;
         background-attachment: fixed;

@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const getPokemonList = () => {
+export const getPokemonList = (offset,limit) => {
     return (
-        axios.get("https://pokeapi.co/api/v2/pokemon/")
+        axios.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
     );
 }
 

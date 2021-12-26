@@ -6,7 +6,8 @@ import Header from "./Header";
 import {useLocation} from "react-router-dom";
 import {searchPokemon} from '../api/Service';
 import './PokemonDetail.css'
-import { Doughnut } from 'react-chartjs-2';
+import male from './male.png';
+import female from './female.png';
 
 const PokemonDetail = () => {
     const location = useLocation();
@@ -42,7 +43,7 @@ const PokemonDetail = () => {
 
 
     return detail ? (
-        <React.Fragment className="box">
+        <React.Fragment className="container-fluid">
             <div >
                 <Header/>
                 <Container fluid>
@@ -86,9 +87,8 @@ const PokemonDetail = () => {
                                 <div>Weight-{
                                     detail.weight
                                 }</div>
-                                <div> {/* Gender-<img src="male.png"/>/<img src="female.png"/> */}
-                                    Gender -
-                                    <img src="components/male-and-female-signs.png"/>
+                                <div> 
+                                    Gender - <img src={male} style={{height : 20 }}/> / <img src={female} style={{height : 22 }}/>
                                 </div>
                             </Col>
                         </Row>
@@ -97,14 +97,14 @@ const PokemonDetail = () => {
                                 <h5 className="display-6 text-capitalize m-2">Status</h5>
                                 <div> {
                                     statsList.map((data, idx) => (
-                                        
+
                                         <div key={idx}>
                                             {
                                             data.stat.name
                                         }={
                                             data.base_stat
-                                            // {<Doughnut data={stateData} />}
-                                        } </div>
+                                        } 
+                                        </div>
                                     ))
                                 } </div>
                             </Col>
@@ -113,7 +113,7 @@ const PokemonDetail = () => {
                 </Container>
             </div>
         </React.Fragment>
-    ) : null // TODO: Add loader later
+    ) : null
 }
 
 export default PokemonDetail;

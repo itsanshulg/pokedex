@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import Pagination from "react-bootstrap/Pagination";
+import {Pagination} from 'antd';
 import Header from "./Header"
 import {getPokemonList, searchPokemon} from "../api/Service";
 import './PokemonList.css';
@@ -12,16 +12,30 @@ import './PokemonList.css';
 
 const PokemonList = () => {
     const [list, setList] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [hasPrevious, setHasPrevious] = useState(false);
+    const [hasNext, setHasNext] = useState(false);
+
 
     useEffect(() => {
-        getPokemonList().then((res) => {
+
+        getData(0, 20);
+
+    }, []);
+
+    const getData = (offset, limit) => {
+        getPokemonList(offset, limit).then((res) => {
             console.log('res', res);
             const data = res.data.results;
             setList(data);
+
+            setTotal(res.data.count);
+            setHasPrevious(!!res.data.previous);
+            setHasNext(!!res.data.next);
         }).catch((err) => {
             console.log(err);
         })
-    }, []);
+    }
 
 
     const handleSearch = (search) => {
@@ -37,8 +51,16 @@ const PokemonList = () => {
         }
     }
 
+
+    const onChange = (page, pageSize) => {
+        const nextPage = page * pageSize;
+      
+        getData(nextPage, pageSize);
+      }
+      
+
     return (
-        <React.Fragment className="container">
+        <React.Fragment className="container-fluid">
             <Header onSearch={handleSearch}/>
             <Container fluid className="mt-5 ">
 
@@ -73,18 +95,9 @@ const PokemonList = () => {
                     ))
                 } </Row>
 
-                <Pagination>
-                    <Pagination.First/>
-                    <Pagination.Prev/>
+                <Pagination defaultCurrent={1}
+                    total={total} showSizeChanger={false} pageSize={20} onChange={onChange} className="w-100 p-3 justify-content-center d-flex"/>
 
-                    <Pagination.Item active>
-                        {1}</Pagination.Item>
-                    <Pagination.Item>{2}</Pagination.Item>
-                    <Pagination.Item>{3}</Pagination.Item>
-
-                    <Pagination.Next/>
-                    <Pagination.Last/>
-                </Pagination>
 
             </Container>
         </React.Fragment>

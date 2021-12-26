@@ -8,7 +8,7 @@ import "./Home.css";
 const Home = () => {
     return (
         <Container fluid className="home">
-            <div className="container">
+            <div className="container-fluid">
                 <PokemonList/>
             </div>
         </Container>
