@@ -1,0 +1,37 @@
+    /* .container{
+        background-image:url("./background.jpg");
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-attachment: fixed;
+        background-color:  #001f33;
+        width: 100vw;
+        height: 100vh;
+        color:white;
+        text-decoration:solid;
+    } */
+
+    .container{
+        /* background-image:url("./background.jpg"); */
+            background-color:  #001f33;
+            background-repeat: no-repeat;
+            background-size:cover;
+            color:white;
+            background-attachment: fixed;
+    }
+
+.heading{
+    color:white;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.pokemon-image {
+    border-radius: 50%;
+    min-height: 300px;
+    min-width: 300px;
+    max-height: 300px;
+    max-width: 300px;
+    background: rgb(2,0,36);
+    background: linear-gradient(108deg, rgba(2,0,36,1) 0%, rgba(49,122,129,1) 40%, rgba(0,212,255,1) 100%);
+    /* object-fit: contain; */
+    object-fit: fill;
+}
