@@ -70,7 +70,7 @@ const PokemonList = () => {
                     {
                     list.map((data, idx) => (
                         <Col key={idx}>
-                            <Card className="poke opacity-75">
+                            <Card className="poke opacity-75 rounded border border-success border-2 ">
                                 <Card.Body>
                                     <Card.Title className="text-capitalize">
                                         {

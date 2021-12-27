@@ -59,7 +59,7 @@ const PokemonDetail = () => {
                             alt=""/>
                         <Row>
                             <Col>
-                                <h5 className="display-6 text-capitalize m-2">Type</h5>
+                                <h5 className="display-6 text-capitalize m-2 detailText">Type</h5>
                                 {
                                 typeList.map((data, idx) => (
                                     <div key={idx}>
@@ -80,7 +80,7 @@ const PokemonDetail = () => {
                             </Col>
 
                             <Col>
-                                <h5 className="display-6 text-capitalize m-2">Details</h5>
+                                <h5 className="display-6 text-capitalize m-2 detailText">Details</h5>
                                 <div>Height-{
                                     detail.height
                                 }</div>
@@ -94,7 +94,7 @@ const PokemonDetail = () => {
                         </Row>
                         <Row>
                             <Col>
-                                <h5 className="display-6 text-capitalize m-2">Status</h5>
+                                <h5 className="display-6 text-capitalize m-2 detailText">Status</h5>
                                 <div> {
                                     statsList.map((data, idx) => (
 
